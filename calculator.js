@@ -130,6 +130,15 @@ $(document).ready(function(){
         $("#screen").append(0)
         }
     });
+    $("#division").click(function(){
+        if (on) {
+        num1 = Number(temp);
+        temp = '';
+        operand = '/';
+        $("#screen").html('');
+        $("#screen").append(0)
+        }
+    });
 
     $("#equals").click(function(){
         if (on && operand === '+') {
@@ -179,6 +188,25 @@ $(document).ready(function(){
             num2 = 0;
             }
             else {
+                $("#screen").append("Out of range")
+            }
+        }
+
+        if (on && operand === '/') {
+            num2 = Number(temp);
+            temp = '';
+            var result = (num1 / num2);
+            $("#screen").html('');
+            if (result < 10000000000) {
+                if (result.toString().length > 9) {
+                    result = result.toFixed(2);
+                }
+            $("#screen").append(result)
+            num1 = 0;
+            num2 = 0;
+            }
+            else {
+                console.log(result)
                 $("#screen").append("Out of range")
             }
         }
