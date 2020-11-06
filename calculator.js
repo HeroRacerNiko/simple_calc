@@ -19,6 +19,8 @@ $(document).ready(function(){
         }
     });
 
+    
+
     $("#off").click(function(){
         on = false;
         $("#screen").html('');
@@ -90,11 +92,20 @@ $(document).ready(function(){
         $("#screen").html(temp);
         }
     });
-
+    
     $("#1").click(function(){
         if (on && temp.length < 10) {
         temp += 1;
         $("#screen").html(temp);
+        }
+    });
+    $(document).keydown(function(){
+        event.preventDefault();
+        if (on && temp.length < 10) {
+            if (event.keyCode === 97 || event.keyCode === 49) {
+                temp += 1;
+                $("#screen").html(temp);
+            }
         }
     });
 
@@ -102,6 +113,15 @@ $(document).ready(function(){
         if (on && temp.length < 10) {
         temp += 2;
         $("#screen").html(temp);
+        }
+    });
+    $(document).keydown(function(){
+        event.preventDefault();
+        if (on && temp.length < 10) {
+            if (event.keyCode === 98 || event.keyCode === 50) {
+                temp += 2;
+                $("#screen").html(temp);
+            }
         }
     });
    
