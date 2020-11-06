@@ -8,20 +8,32 @@ $(document).ready(function(){
     var operand = '';
     
     
-// need to add event listener to button div and single funtion extract button's value and push to screen
+// need to add event listener to button div and 
+//single funtion extract button's value and 
+//push to screen
     $("#on").click(function(){
         if (!on){
         $("#screen").html('');
         $("#screen").append(0)
         on = true;
         }
-    })
+    });
 
     $("#off").click(function(){
         on = false;
         $("#screen").html('');
         temp = '';
-    })
+    });
+
+    $("#negative").click(function(){
+        if (temp.indexOf('-') === -1) {
+        temp = '-'+temp;    
+        $("#screen").html(temp)
+        } else {
+            temp = temp.substring(1);
+            $("#screen").html(temp)
+        }
+    });
     
     $("#7").click(function(){
         if (on && temp.length < 10) {
@@ -48,7 +60,16 @@ $(document).ready(function(){
         if (on && temp.length < 10) {
         temp += 4;
         $("#screen").html(temp);
-        }
+        if (temp.indexOf('-') === -1 && temp !== 0) {
+            $("#screen").html('');
+            temp = "-" + temp;
+            $("#screen").append(temp)
+            }
+        } else if (temp.indexOf('-') !== -1) {
+            $("#screen").html('');
+            temp = Math.abs(Number(temp));
+            $("#screen").append(temp);
+            }
     });
 
     $("#5").click(function(){
@@ -89,6 +110,13 @@ $(document).ready(function(){
     $("#0").click(function(){
         if (on && temp.length < 10 && temp !== '0') {
         temp += 0;
+        $("#screen").html(temp);
+        }
+    });
+// once would be perfect here
+    $("#float").click(function(){
+        if (on && temp.length < 10 && temp.indexOf('.') === -1) {
+        temp += '.';
         $("#screen").html(temp);
         }
     });
