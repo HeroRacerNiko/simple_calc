@@ -26,12 +26,17 @@ $(document).ready(function(){
     });
 
     $("#negative").click(function(){
-        if (temp.indexOf('-') === -1) {
-        temp = '-'+temp;    
-        $("#screen").html(temp)
-        } else {
-            temp = temp.substring(1);
+        if (on) {
+            if (temp === '') {
+                temp = '0';
+            }
+            if (temp.indexOf('-') === -1) {
+            temp = '-'+temp;    
             $("#screen").html(temp)
+            } else {
+                temp = temp.substring(1);
+                $("#screen").html(temp)
+            }
         }
     });
     
@@ -210,7 +215,9 @@ $(document).ready(function(){
             result = (num1 * num2);
             $("#screen").html('');
             if (result < 10000000000) {
-            
+                if (result.toString().length > 9) {
+                    result = result.toFixed(2);
+                }            
             $("#screen").append(result)
             num1 = 0;
             num2 = 0;
