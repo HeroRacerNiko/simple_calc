@@ -30,7 +30,7 @@
     font-size: 15px;
 }
 
-#digits {
+#buttons {
     margin-top: 30px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -38,7 +38,7 @@
      
 }
 
-.calcBtns {
+.calcBtns, .digits, .operand {
     
     border-radius: 25px;
     background-image: linear-gradient(lightblue, white, #ccf2ff);
