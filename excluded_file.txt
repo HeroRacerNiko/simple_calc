@@ -1,1 +1,0 @@
-This file should be excluded since it will be declared in the gitignore file
