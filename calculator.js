@@ -123,6 +123,8 @@ $(document).ready(function() {
         } else if (event.keyCode === 97 || event.keyCode === 49) {
             temp += "1";
             $("#mainScreen").html(temp);
+            $("#subscreen").html(temp);
+            $("#subscreen").append(`1`)
         } else if (event.keyCode === 98 || event.keyCode === 50) {
             temp += '2';
             $("#mainScreen").html(temp);

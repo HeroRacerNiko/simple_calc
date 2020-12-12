@@ -1,10 +1,13 @@
 
 #calculator {
     
+    /* margin-left: auto;
+    margin-right: auto; */
+    position: absolute;
+    /* transform: translate(50%, 50%); */
     border-style: solid;
     border-color: silver;
     border-radius: 30px;
-    position: absolute;
     padding: 15px;
     background-image: linear-gradient(black, silver, grey);
 }
